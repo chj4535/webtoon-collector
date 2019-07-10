@@ -17,6 +17,7 @@ namespace webtoon_collector
     {
         MainViewModelPage mainViewmodelpage = new MainViewModelPage();
 
+
         public MainPage()
         {
             InitializeComponent();

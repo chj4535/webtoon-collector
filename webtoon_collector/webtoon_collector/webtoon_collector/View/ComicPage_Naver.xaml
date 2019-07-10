@@ -20,13 +20,13 @@
                 <ColumnDefinition Width="50"/>
             </Grid.ColumnDefinitions>
             <Label Grid.Row="0" Grid.Column="0" Text="TitleId" VerticalOptions="Center" HorizontalOptions="Center"/>
-            <Entry Grid.Row="0" Grid.Column="1" Placeholder="Webtoon title number" VerticalOptions="Center"/>
+            <Entry Grid.Row="0" Grid.Column="1" Placeholder="Webtoon title number" VerticalOptions="Center" Text="{Binding titleId,Mode=TwoWay}"/>
 
             <Label Grid.Row="1" Grid.Column="0" Text="Start episod" VerticalOptions="Center" HorizontalOptions="Center"/>
-            <Entry Grid.Row="1" Grid.Column="1" Placeholder="Webtoon title number" VerticalOptions="Center"/>
+            <Entry Grid.Row="1" Grid.Column="1" Placeholder="Webtoon title number" VerticalOptions="Center" Text="{Binding startEpisod,Mode=TwoWay}"/>
 
             <Label Grid.Row="2" Grid.Column="0" Text="End episode" VerticalOptions="Center" HorizontalOptions="Center"/>
-            <Entry Grid.Row="2" Grid.Column="1" Placeholder="Webtoon title number" VerticalOptions="Center"/>
+            <Entry Grid.Row="2" Grid.Column="1" Placeholder="Webtoon title number" VerticalOptions="Center" Text="{Binding endEpisod,Mode=TwoWay}"/>
 
             <Button Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="3" Text="Download Start" Margin="10" Command="{Binding DownloadStartCommand}"></Button>
         </Grid>
