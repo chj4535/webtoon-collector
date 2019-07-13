@@ -1,8 +1,10 @@
-﻿using System;
+﻿using Rg.Plugins.Popup.Services;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using webtoon_collector.Model.ClassCollect;
 using webtoon_collector.ViewModel;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -17,5 +19,6 @@ namespace webtoon_collector.View
             InitializeComponent();
             BindingContext = mainViewmodelpage;
         }
+        
     }
-}
+}   

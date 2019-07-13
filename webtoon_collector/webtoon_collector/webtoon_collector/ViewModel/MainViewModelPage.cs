@@ -1,10 +1,16 @@
-﻿using System;
+﻿using Rg.Plugins.Popup.Services;
+using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.IO;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using webtoon_collector.Model;
+using webtoon_collector.Model.ClassCollect;
+using webtoon_collector.View;
 using Xamarin.Forms;
 
 namespace webtoon_collector.ViewModel
@@ -14,7 +20,10 @@ namespace webtoon_collector.ViewModel
         MainModelPage mainModelpage = new MainModelPage();
         public event PropertyChangedEventHandler PropertyChanged;
 
+        public ObservableCollection<ComicInfo> comicList { get; set; }
+        
         public ICommand DownloadStartCommand { get; private set; }
+        
 
         private string _titleId;
         public string titleId
@@ -64,18 +73,36 @@ namespace webtoon_collector.ViewModel
             }
         }
 
-        public string WebtoonName;
+        public ComicInfo WebtoonName;
 
         public MainViewModelPage()
         {
-            DownloadStartCommand = new Command(async () => await CheckComic());
+            comicList = new ObservableCollection<ComicInfo>();
+            DownloadStartCommand = new Command(DownComic);
+            //DownloadStartCommand = new Command(async () => await CheckComic());
         }
 
+        public void DownComic()
+        {
+            ComicInfo testcomic = new ComicInfo()
+            {
+                Autor = "tester",
+                StartEpisode = "1",
+                EndEpisode = "3",
+                Title = "쿠베라",
+                TitleId = "131385"
+            };
+            mainModelpage.GetNaverWebtoonImgList(testcomic);
+
+
+        }
         async Task CheckComic()
         {
 
             WebtoonName = mainModelpage.GetWebtoonTitle(titleId);
-            bool answer = await Application.Current.MainPage.DisplayAlert("Question?", "Would you like to play a game", "Yes", "No");
+            WebtoonName.StartEpisode = startEpisod;
+            WebtoonName.EndEpisode = endEpisod;
+            await PopupNavigation.PushAsync(new popupdemo(WebtoonName,this));
         }
 
         protected virtual void OnPropertyChanged(string propertyName)

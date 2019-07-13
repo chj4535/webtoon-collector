@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Text;
+using webtoon_collector.Model.ClassCollect;
 
 namespace webtoon_collector.Model
 {
@@ -8,9 +10,14 @@ namespace webtoon_collector.Model
     {
         Crawling crawling = new Crawling();
 
-        public string GetWebtoonTitle(string titleId)
+        public ComicInfo GetWebtoonTitle(string titleId)
         {
             return crawling.GetWebtoonTitle(titleId);
+        }
+
+        public List<Stream> GetNaverWebtoonImgList(ComicInfo comicInfo)
+        {
+            return crawling.GetNaverWebtoonImgList(comicInfo);
         }
     }
 }

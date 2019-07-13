@@ -22,13 +22,57 @@
             <Label Grid.Row="0" Grid.Column="0" Text="TitleId" VerticalOptions="Center" HorizontalOptions="Center"/>
             <Entry Grid.Row="0" Grid.Column="1" Placeholder="Webtoon title number" VerticalOptions="Center" Text="{Binding titleId,Mode=TwoWay}"/>
 
-            <Label Grid.Row="1" Grid.Column="0" Text="Start episod" VerticalOptions="Center" HorizontalOptions="Center"/>
+            <Label Grid.Row="1" Grid.Column="0" Text="Start episode" VerticalOptions="Center" HorizontalOptions="Center"/>
             <Entry Grid.Row="1" Grid.Column="1" Placeholder="Webtoon title number" VerticalOptions="Center" Text="{Binding startEpisod,Mode=TwoWay}"/>
 
             <Label Grid.Row="2" Grid.Column="0" Text="End episode" VerticalOptions="Center" HorizontalOptions="Center"/>
             <Entry Grid.Row="2" Grid.Column="1" Placeholder="Webtoon title number" VerticalOptions="Center" Text="{Binding endEpisod,Mode=TwoWay}"/>
 
             <Button Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="3" Text="Download Start" Margin="10" Command="{Binding DownloadStartCommand}"></Button>
+            <StackLayout Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="3">
+                <ListView x:Name="NaverComicList" HorizontalOptions="FillAndExpand" ItemsSource="{Binding comicList}">
+                    <ListView.Header>
+                        <Grid HorizontalOptions="Fill">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="200"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Label Grid.Column="0" Text="ComicImage" HorizontalOptions="Center"/>
+                            <Label Grid.Column="1" Text="ComicTitle" HorizontalOptions="Center"/>
+                            <Label Grid.Column="2" Text="StartEpisode" HorizontalOptions="Center"/>
+                            <Label Grid.Column="3" Text="EndEpisode" HorizontalOptions="Center"/>
+                            <Label Grid.Column="4" Text="CurrentEpisode" HorizontalOptions="Center"/>
+                        </Grid>
+                    </ListView.Header>
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Frame BorderColor="Black">
+                                    <Grid HorizontalOptions="Fill">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="200"/>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Image Grid.Column="0" Source="{Binding TitleImgUrl}" HorizontalOptions="Center" VerticalOptions="Center"/>
+                                        <Label Grid.Column="1" Text="{Binding Title}" HorizontalOptions="Center" VerticalOptions="Center"/>
+                                        <Label Grid.Column="2" Text="{Binding StartEpisode}" HorizontalOptions="Center" VerticalOptions="Center"/>
+                                        <Label Grid.Column="3" Text="{Binding EndEpisode}" HorizontalOptions="Center" VerticalOptions="Center"/>
+                                        <Label Grid.Column="4" Text="NULL" HorizontalOptions="Center" VerticalOptions="Center"/>
+                                    </Grid>
+                                </Frame>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
         </Grid>
     </ContentPage.Content>
 </ContentPage>
