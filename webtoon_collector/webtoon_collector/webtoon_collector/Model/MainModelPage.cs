@@ -15,9 +15,10 @@ namespace webtoon_collector.Model
             return crawling.GetWebtoonTitle(titleId);
         }
 
-        public List<Stream> GetNaverWebtoonImgList(ComicInfo comicInfo)
+        public void DownLoadNaverWebtoonImgList(ComicInfo comicInfo)
         {
-            return crawling.GetNaverWebtoonImgList(comicInfo);
+            crawling.DownLoadNaverWebtoonImgList(comicInfo);
         }
+
     }
 }

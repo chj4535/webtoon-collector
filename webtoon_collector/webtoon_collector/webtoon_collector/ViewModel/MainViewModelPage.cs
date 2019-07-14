@@ -21,7 +21,8 @@ namespace webtoon_collector.ViewModel
         public event PropertyChangedEventHandler PropertyChanged;
 
         public ObservableCollection<ComicInfo> comicList { get; set; }
-        
+        public ObservableCollection<DownComicList> downComiclist { get; set; }
+
         public ICommand DownloadStartCommand { get; private set; }
         
 
@@ -78,12 +79,6 @@ namespace webtoon_collector.ViewModel
         public MainViewModelPage()
         {
             comicList = new ObservableCollection<ComicInfo>();
-            DownloadStartCommand = new Command(DownComic);
-            //DownloadStartCommand = new Command(async () => await CheckComic());
-        }
-
-        public void DownComic()
-        {
             ComicInfo testcomic = new ComicInfo()
             {
                 Autor = "tester",
@@ -92,9 +87,14 @@ namespace webtoon_collector.ViewModel
                 Title = "쿠베라",
                 TitleId = "131385"
             };
-            mainModelpage.GetNaverWebtoonImgList(testcomic);
+            //DownLoadComic(testcomic);
+            //DownloadStartCommand = new Command(DownLoadComic);
+            DownloadStartCommand = new Command(async () => await CheckComic());
+        }
 
-
+        public void DownLoadComic(ComicInfo comIcInfo)
+        {
+            mainModelpage.DownLoadNaverWebtoonImgList(comIcInfo);
         }
         async Task CheckComic()
         {

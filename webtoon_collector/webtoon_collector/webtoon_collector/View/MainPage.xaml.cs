@@ -22,7 +22,6 @@ namespace webtoon_collector
         {
             InitializeComponent();
             BindingContext = mainViewmodelpage;
-            Navigation.PushAsync(new ComicPage_Naver(mainViewmodelpage));
         }
 
         public void Button_Naver(object sender, EventArgs e)

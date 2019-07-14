@@ -6,8 +6,29 @@
              mc:Ignorable="d"
              x:Class="webtoon_collector.MainPage">
 
-    <StackLayout>
-        <Button Text="Naver" Clicked="Button_Naver"/>
-    </StackLayout>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Frame Grid.Row="0" BorderColor="Black" Margin="10">
+            <StackLayout Orientation="Vertical">
+                <FlexLayout Wrap="Wrap" AlignContent="Start">
+                    <Button Text="Naver" Clicked="Button_Naver" HeightRequest="50" Margin="5"/>
+                    <Button Text="Daum" Clicked="Button_Naver" HeightRequest="50" Margin="5"/>
+                </FlexLayout>
+            </StackLayout>
+        </Frame>
+        <Label Grid.Row="0" Text="DownLoadWebtoon" VerticalOptions="Start" HorizontalOptions="Start" BackgroundColor="White" Margin="20,0,0,5"/>
+        <Frame Grid.Row="1" BorderColor="Black" Margin="10">
+            <StackLayout Orientation="Vertical">
+                <FlexLayout Wrap="Wrap" AlignContent="Start" Margin="10">
+                    <Button Text="Naver" Clicked="Button_Naver" HeightRequest="50" Margin="5"/>
+                    <Button Text="Daum" Clicked="Button_Naver" HeightRequest="50" Margin="5"/>
+                </FlexLayout>
+            </StackLayout>
+        </Frame>
+        <Label Grid.Row="1" Text="WebtoonList" VerticalOptions="Start" HorizontalOptions="Start" BackgroundColor="White" Margin="20,0,0,5"/>
+    </Grid>
 
 </ContentPage>

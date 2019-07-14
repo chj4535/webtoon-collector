@@ -31,6 +31,7 @@ namespace webtoon_collector.View
         private async void Button_AddComic(object sender, EventArgs e)
         {
             mainViewmodelpage.comicList.Add(comicInfo);
+            mainViewmodelpage.DownLoadComic(comicInfo);
             await PopupNavigation.PopAsync();
         }
 
