@@ -17,14 +17,15 @@ namespace webtoon_collector.ViewModel
 {
     public class MainViewModelPage : INotifyPropertyChanged
     {
-        MainModelPage mainModelpage = new MainModelPage();
+        TestEvent testevnet = new TestEvent();
         public event PropertyChangedEventHandler PropertyChanged;
+        MainModelPage mainModelpage = new MainModelPage();
 
         public ObservableCollection<ComicInfo> comicList { get; set; }
-        public ObservableCollection<DownComicList> downComiclist { get; set; }
 
         public ICommand DownloadStartCommand { get; private set; }
-        
+        public ICommand TestCommand { get; private set; }
+
 
         private string _titleId;
         public string titleId
@@ -74,22 +75,39 @@ namespace webtoon_collector.ViewModel
             }
         }
 
+        private string _testValue;
+        public string testValue
+        {
+            get
+            {
+                return _testValue;
+            }
+
+            set
+            {
+                if (_testValue == value) return;
+                _testValue = value;
+                OnPropertyChanged("testValue");
+            }
+        }
+
         public ComicInfo WebtoonName;
 
         public MainViewModelPage()
         {
+            testValue = "hello";
             comicList = new ObservableCollection<ComicInfo>();
-            ComicInfo testcomic = new ComicInfo()
-            {
-                Autor = "tester",
-                StartEpisode = "1",
-                EndEpisode = "3",
-                Title = "쿠베라",
-                TitleId = "131385"
-            };
-            //DownLoadComic(testcomic);
-            //DownloadStartCommand = new Command(DownLoadComic);
             DownloadStartCommand = new Command(async () => await CheckComic());
+            TestCommand = new Command(Test);
+            testevnet.testevent += new EventHandler(testevnet2);
+        }
+        void testevnet2(object sender, EventArgs e)
+        {
+            testValue = sender as string;
+        }
+        public void Test()
+        {
+            mainModelpage.Test(testevnet,"hi");
         }
 
         public void DownLoadComic(ComicInfo comIcInfo)

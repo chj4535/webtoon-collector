@@ -9,9 +9,9 @@ namespace webtoon_collector.Model
     public class MainModelPage
     {
         Crawling crawling = new Crawling();
-
         public ComicInfo GetWebtoonTitle(string titleId)
         {
+            string ttest = "11233";
             return crawling.GetWebtoonTitle(titleId);
         }
 
@@ -20,5 +20,9 @@ namespace webtoon_collector.Model
             crawling.DownLoadNaverWebtoonImgList(comicInfo);
         }
 
+        public void Test(TestEvent testevnet, string testValue)
+        {
+            testevnet.startevent(testValue);
+        }
     }
 }

@@ -39,13 +39,12 @@
                                 <ColumnDefinition Width="*"/>
                                 <ColumnDefinition Width="*"/>
                                 <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="*"/>
                             </Grid.ColumnDefinitions>
                             <Label Grid.Column="0" Text="ComicImage" HorizontalOptions="Center"/>
-                            <Label Grid.Column="1" Text="ComicTitle" HorizontalOptions="Center"/>
-                            <Label Grid.Column="2" Text="StartEpisode" HorizontalOptions="Center"/>
-                            <Label Grid.Column="3" Text="EndEpisode" HorizontalOptions="Center"/>
-                            <Label Grid.Column="4" Text="CurrentEpisode" HorizontalOptions="Center"/>
+                            <Label Grid.Column="1" Text="Comic&#x0a;Title" HorizontalOptions="Center" HorizontalTextAlignment="Center"/>
+                            <Label Grid.Column="2" Text="Start&#x0a;Episode" HorizontalOptions="Center" HorizontalTextAlignment="Center"/>
+                            <Label Grid.Column="3" Text="End&#x0a;Episode" HorizontalOptions="Center" HorizontalTextAlignment="Center"/>
+                            <Label Grid.Column="4" Text="Current&#x0a;Episode" HorizontalOptions="Center" HorizontalTextAlignment="Center"/>
                         </Grid>
                     </ListView.Header>
                     <ListView.ItemTemplate>
